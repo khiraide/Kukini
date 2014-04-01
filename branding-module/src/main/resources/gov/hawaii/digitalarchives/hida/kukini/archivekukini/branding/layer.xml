@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+<!--    <folder name="Windows2">
+        <folder name="Modes">
+            <folder name="editor">
+                <file name="favorites.wstcref" url="favoritesWstcref.xml"/>
+            </folder>
+            <folder name="explorer">
+                <file name="favorites.wstcref_hidden"/>
+            </folder>
+        </folder>
+    </folder>-->
+    
+    <folder name="Loaders">
+        <folder name="application">
+            <folder name="x-nbsettings">
+                <folder name="Actions">
+                    <file name="CopyAction.shadow_hidden"/>
+                    <file name="CutAction.shadow_hidden"/>
+                    <file name="DeleteAction.shadow_hidden"/>
+                    <file name="OpenAction.shadow_hidden"/>
+                    <file name="PasteAction.shadow_hidden"/>
+                    <file name="RenameAction.shadow_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="content">
+            <folder name="unknown">
+                <folder name="Actions">
+                    <file name="CopyAction.shadow_hidden"/>
+                    <file name="CutAction.shadow_hidden"/>
+                    <file name="DeleteAction.shadow_hidden"/>
+                    <file name="OpenAction.shadow_hidden"/>
+                    <file name="PasteAction.shadow_hidden"/>
+                    <file name="RenameAction.shadow_hidden"/>
+                    <file name="org-netbeans-core-ui-options-filetypes-OpenAsAction.shadow_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="folder">
+            <folder name="any">
+                <folder name="Actions">
+                    <file name="CopyAction.shadow_hidden"/>
+                    <file name="CutAction.shadow_hidden"/>
+                    <file name="DeleteAction.shadow_hidden"/>
+                    <file name="FindAction.shadow_hidden"/>
+                    <file name="NewTemplateAction.shadow_hidden"/>
+                    <file name="PasteAction.shadow_hidden"/>
+                    <file name="RenameAction.shadow_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+        <folder name="text">
+            <folder name="xml">
+                <folder name="Actions">
+                    <file name="CopyAction.shadow_hidden"/>
+                    <file name="CutAction.shadow_hidden"/>
+                    <file name="DeleteAction.shadow_hidden"/>
+                    <file name="OpenAction.shadow_hidden"/>
+                    <file name="PasteAction.shadow_hidden"/>
+                    <file name="RenameAction.shadow_hidden"/>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Edit_hidden"/>
+        
+        <folder name="File">
+            <file name="org-netbeans-modules-print-action-PageSetupAction.shadow_hidden"/>
+            <file name="org-netbeans-modules-print-action-PrintAction.shadow_hidden"/>
+            <file name="org-openide-actions-PageSetupAction.shadow_hidden"/>
+            <file name="org-openide-actions-PrintAction.shadow_hidden"/>
+            <file name="org-openide-actions-PageSetupAction.instance_hidden"/>
+            <file name="org-openide-actions-PrintAction.instance_hidden"/>
+            <file name="org-openide-actions-SaveAction.instance_hidden"/>
+            <file name="org-openide-actions-SaveAction.shadow_hidden"/>
+            <file name="org-openide-actions-SaveAllAction.instance_hidden"/>
+            <file name="org-openide-actions-SaveAllAction.shadow_hidden"/>
+            <file name="org-openide-actions-SaveAsAction.shadow_hidden"/>
+        </folder>
+        
+        <folder name="Tools">
+            <file name="org-openide-actions-ToolsAction.shadow_hidden"/>
+        </folder>
+        
+        <folder name="View_hidden"/>
+        
+        <folder name="Window">
+            <file name="CloneDocumentAction.shadow_hidden"/>
+            <file name="CloseAllButThisAction.shadow_hidden"/>
+            <file name="CloseAllDocumentsAction.shadow_hidden"/>
+            <file name="DocumentsAction.shadow_hidden"/>
+            <file name="Output_hidden"/>
+            <file name="ProgressListAction.shadow_hidden"/>
+            <file name="Separator4_1.instance" url="Separator4_1.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="2925"/>
+            </file>
+            <file name="Separator5.instance_hidden"/>
+            <file name="SwitchToRecentDocumentAction.shadow_hidden"/>
+            <file name="Tools_hidden"/>
+            <file name="Web_hidden"/>
+            <file name="org-netbeans-core-actions-GlobalPropertiesAction.shadow_hidden"/>
+            <file name="org-netbeans-core-windows-actions-GlobalPropertiesAction.shadow_hidden"/>
+            <file name="org-netbeans-core-windows-actions-ResetWindowsAction.shadow_hidden"/>
+        </folder>
+        <file name="GoTo_hidden"/>
+    </folder>
+    <folder name="Toolbars_hidden"/>
+    <folder name="Windows2">
+        <folder name="Modes">
+            <folder name="explorer">
+                <file name="favorites.wstcref" url="favoritesWstcref_1.xml"/>
+                <attr name="position" intvalue="9000"/>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

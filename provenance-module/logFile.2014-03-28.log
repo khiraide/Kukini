@@ -1,0 +1,32 @@
+10:36:41.236 476  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering extractNetworkInformation()
+10:36:41.247 487  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting extractNetworkInformation()
+10:36:41.248 488  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering extractSystemInformation()
+10:36:41.311 551  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting extractSystemInformation()
+10:36:41.311 551  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering extractSystemUserInformation()
+10:36:41.333 573  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting extractSystemUserInformation()
+10:36:41.333 573  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering getMachineInfoPair()
+10:36:41.334 574  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting getMachineInfoPair(): {systemDescription=Ubuntu 12.04, systemName=Linux, domainName=(none), macAddress=00:24:D6:2A:0B:32, secondaryDns=, systemPatchLevel=unknown, interface=wlan0, systemVendorVersion=12.04, user0=tatsujin, defaultGateway=10.0.0.1, systemVersion=3.2.0-56-generic, systemArchitecture=x86_64, userDevice0=tty7, primaryDns=127.0.0.1, systemVendor=Ubuntu, systemMachine=x86_64, hostName=tatsujin-VGNFW590FVH, machineTime0=1396021415, systemVendorCodeName=precise, netMask=255.255.255.0, host0=, ipAddress=10.0.0.3}
+10:41:59.555 425  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering extractNetworkInformation()
+10:41:59.568 438  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting extractNetworkInformation()
+10:41:59.568 438  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering extractSystemInformation()
+10:41:59.569 439  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting extractSystemInformation()
+10:41:59.570 440  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering extractSystemUserInformation()
+10:41:59.572 442  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting extractSystemUserInformation()
+10:41:59.572 442  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Entering getMachineInfoPair()
+10:41:59.572 442  [main] DEBUG g.h.d.h.k.p.MachineInfoExtractorImpl
+				- Exiting getMachineInfoPair(): {systemDescription=Ubuntu 12.04, systemName=Linux, domainName=(none), macAddress=00:24:D6:2A:0B:32, secondaryDns=, systemPatchLevel=unknown, interface=wlan0, systemVendorVersion=12.04, user0=tatsujin, defaultGateway=10.0.0.1, systemVersion=3.2.0-56-generic, systemArchitecture=x86_64, userDevice0=tty7, primaryDns=127.0.0.1, systemVendor=Ubuntu, systemMachine=x86_64, hostName=tatsujin-VGNFW590FVH, machineTime0=1396021415, systemVendorCodeName=precise, netMask=255.255.255.0, host0=, ipAddress=10.0.0.3}

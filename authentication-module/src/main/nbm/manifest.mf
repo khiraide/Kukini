@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Install: gov/hawaii/digitalarchives/hida/kukini/authentication/LoginView.class
+OpenIDE-Module-Localizing-Bundle: gov/hawaii/digitalarchives/hida/kukini/authentication/Bundle.properties
+AutoUpdate-Essential-Module: true

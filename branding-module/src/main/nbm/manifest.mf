@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Layer: gov/hawaii/digitalarchives/hida/kukini/archivekukini/branding/layer.xml
+OpenIDE-Module-Localizing-Bundle: gov/hawaii/digitalarchives/hida/kukini/archivekukini/branding/Bundle.properties
+AutoUpdate-Essential-Module: true

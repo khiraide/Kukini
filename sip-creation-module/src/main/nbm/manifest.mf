@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: gov/hawaii/digitalarchives/hida/kukini/sipcreation/Bundle.properties
+AutoUpdate-Essential-Module: true
+OpenIDE-Module-Requires: org.openide.windows.WindowManager

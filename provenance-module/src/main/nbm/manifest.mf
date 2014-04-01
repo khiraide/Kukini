@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+AutoUpdate-Essential-Module: true
+OpenIDE-Module-Install: gov/hawaii/digitalarchives/hida/kukini/provenance/SigarNativeLibraryInstaller.class
+OpenIDE-Module-Localizing-Bundle: gov/hawaii/digitalarchives/hida/kukini/provenance/Bundle.properties
+OpenIDE-Module-Provides: gov.hawaii.digitalarchives.hida.kukini.authentication.UserInformation, gov.hawaii.digitalarchives.hida.kukini.sipcreation.MachineInfoExtractor

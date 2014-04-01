@@ -1,4 +1,42 @@
-Kukini
+Kukini - A digital records transfer tool for the Hawaii State Archives
 ======
 
-Digital Records Transfer Tool for the Hawaii State Archives
+At the Hawaii State Archives, there is a need to update their digital records preservation capabilities.  Thus, they are currently in the process of implementing a records system which has been designed to store, protect, and preserve digital records. The types of digital records include medical records, annual reports, birth records, etc. This records system requires a Digital Records Transfer tool which must provide government agencies of Hawaii with the ability to transfer digital records to the Hawaii State Archives. Its transfer process must use secure and authenticated methods that document and ensure that the entirety of the files have been transferred uncorrupted. Kukini is a digital records transfer tool that has been designed, implemented, tested, and evaluated for use within an archival framework. To install this system:
+
+
+1. Install Java 7 and Maven
+----------------
+
+Please visit https://www.java.com/en/download/ to install Java 7. 
+
+Start by following the [directions on installing Maven](http://maven.apache.org/download.cgi).
+
+Be sure to run mvn --version to verify that it is correctly installed.  This package has been tested using Maven 3.0.4.
+
+
+2. Install Hawaii State Archives jar files into your local Maven repository
+--------------------------------------------------------------
+
+The Hawaii State Archives binaries are not provided as part of public Maven repositories, so the next step is to install the three jar files needed for compilation and testing into your local repository.   You accomplish this by changing directory to libs and executing the following three commands:
+
+```
+mvn install:install-file -Dfile=bag-module-1.0-SNAPSHOT.jar -DartifactId=bag-module  -DgroupId=gov.hawaii.digitalarchives -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=persistent-id-module-1.0-SNAPSHOT.jar -DartifactId=persistent-id-module -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=space-module-1.0-SNAPSHOT.jar -DartifactId=space-module -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+```
+
+5.  Build and test the system
+-----------------------------
+
+Now that everything is installed, build and test the system. You use the standard Maven 'install' target.
+
+Now to run the application, change to the application-module directory. Run the maven command:
+
+```
+mvn nbm:run-platform
+
+```
+

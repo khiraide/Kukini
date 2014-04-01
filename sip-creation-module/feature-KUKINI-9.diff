@@ -1,0 +1,1038 @@
+diff --git a/pom.xml b/pom.xml
+old mode 100644
+new mode 100755
+index 775865c..ca316ba
+--- a/pom.xml
++++ b/pom.xml
+@@ -1,28 +1,38 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+-    <parent>
+-    <artifactId>ArchiveKukini-parent</artifactId>
+-    <groupId>gov.hawaii.digitalarchives</groupId>
+-    <version>1.0-SNAPSHOT</version>
+-  </parent>
+-
+     <groupId>gov.hawaii.digitalarchives</groupId>
+     <artifactId>SIPCreation</artifactId>
+-    <version>1.0-SNAPSHOT</version>
++    <version>0.0.4-SNAPSHOT</version>
+     <packaging>nbm</packaging>
+ 
+     <name>SIPCreation</name>
++    <url>http://digitalarchives.hawaii.gov</url>
+ 
++    <!-- For deploying builds to the artifact server -->
++    <distributionManagement>
++        <snapshotRepository>
++                <id>snapshots</id>
++                <url>http://poseidon.digitalarchives.hawaii.gov:8080/archiva/repository/snapshots/</url>
++        </snapshotRepository>
++    </distributionManagement>
++    
+     <properties>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++        <!-- Spring Framework Version -->
++        <org.springframework.version>3.2.3.RELEASE</org.springframework.version>
++        
++        <!-- TestNG Version -->
++        <testng.version>6.1.1</testng.version>
++        
++        <netbeans.version>RELEASE731</netbeans.version>
+     </properties>
+ 
+     <repositories>
+-        <!--
+-        Repository hosting NetBeans modules, especially APIs.
+-        Versions are based on IDE releases, e.g.: RELEASE691
+-        To create your own repository, use: nbm:populate-repository
++        <!--
++        Repository hosting NetBeans modules, especially APIs.
++        Versions are based on IDE releases, e.g.: RELEASE691
++        To create your own repository, use: nbm:populate-repository
+         -->
+         <repository>
+             <id>netbeans</id>
+@@ -32,13 +42,200 @@
+                 <enabled>false</enabled>
+             </snapshots>
+         </repository>
++        
++        <repository>
++            <id>snapshots</id>
++            <name>Archiva Managed Snapshot Repository</name>
++            <url>http://poseidon.digitalarchives.hawaii.gov:8080/archiva/repository/snapshots/</url>
++            <releases>
++                    <enabled>false</enabled>
++            </releases>
++            <snapshots>
++                    <enabled>true</enabled>
++                    <updatePolicy>always</updatePolicy>
++            </snapshots>
++        </repository>
++                
++        <repository>
++            <id>springbyexample.org</id>
++            <name>Spring by Example</name>
++            <url>http://www.springbyexample.org/maven/repo</url>
++        </repository>
+     </repositories>
+ 
+     <dependencies>
++        <!-- Netbeans related dependencies -->
+         <dependency>
+             <groupId>org.netbeans.api</groupId>
+             <artifactId>org-netbeans-api-annotations-common</artifactId>
+             <version>RELEASE731</version>
++        </dependency>    
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-util</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-awt</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-loaders</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-filesystems</artifactId>
++            <version>RELEASE731</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-netbeans-modules-nbjunit</artifactId>
++            <version>RELEASE731</version>
++            <scope>test</scope>
++            <type>jar</type>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-windows</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-util-lookup</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-netbeans-modules-settings</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-netbeans-api-progress</artifactId>
++            <version>RELEASE731</version>
++        </dependency>
++        <!-- Needed for the FileObject API to work correctly
++         during unit testing -->
++        <dependency>
++            <groupId>org.netbeans.modules</groupId>
++            <artifactId>org-netbeans-modules-masterfs-linux</artifactId>
++            <version>RELEASE731</version>
++            <scope>test</scope>
++        </dependency>
++        
++        <!-- Test NG -->
++        <dependency>
++            <groupId>org.testng</groupId>
++            <artifactId>testng</artifactId>
++            <version>${testng.version}</version>
++            <scope>test</scope>
++        </dependency>
++        
++        <!-- Spring 3 dependencies -->
++        <dependency>
++            <groupId>javax.servlet</groupId>
++            <artifactId>servlet-api</artifactId>
++            <version>2.5</version>
++            <scope>provided</scope>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework</groupId>
++            <artifactId>spring-web</artifactId>
++            <version>${org.springframework.version}</version>
++            <type>jar</type>
++            <exclusions>
++                <exclusion>
++                    <artifactId>spring-aop</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++                <exclusion>
++                    <artifactId>spring-beans</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++                <exclusion>
++                    <artifactId>spring-context</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++                <exclusion>
++                    <artifactId>spring-core</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++            </exclusions>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework</groupId>
++            <artifactId>spring-webmvc</artifactId>
++            <version>${org.springframework.version}</version>
++            <exclusions>
++                <exclusion>
++                    <artifactId>spring-beans</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++                <exclusion>
++                    <artifactId>spring-context</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++                <exclusion>
++                    <artifactId>spring-core</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++            </exclusions>
++        </dependency>
++        <dependency>
++            <groupId>org.netbeans.external</groupId>
++            <artifactId>org-springframework-web</artifactId>
++            <version>RELEASE73-BETA2</version>
++            <type>jar</type>
++        </dependency>
++        <dependency>
++            <groupId>org.springframework</groupId>
++            <artifactId>spring-test</artifactId>
++            <version>${org.springframework.version}</version>
++            <scope>test</scope>
++            <type>jar</type>
++            <exclusions>
++                <exclusion>
++                    <artifactId>spring-core</artifactId>
++                    <groupId>org.springframework</groupId>
++                </exclusion>
++            </exclusions>
++        </dependency>
++        <dependency>
++            <groupId>org.hamcrest</groupId>
++            <artifactId>hamcrest-all</artifactId>
++            <version>1.3</version>
++        </dependency>
++
++        <!-- Jackson JSON Mapper -->
++        <dependency>
++            <groupId>com.fasterxml.jackson.core</groupId>
++            <artifactId>jackson-databind</artifactId>
++            <version>2.3.0</version>
++        </dependency>
++        
++        <dependency>
++            <groupId>org.netbeans.api</groupId>
++            <artifactId>org-openide-modules</artifactId>
++            <version>${netbeans.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>gov.hawaii.digitalarchives</groupId>
++            <artifactId>Provenance</artifactId>
++            <version>0.0.1-SNAPSHOT</version>
++            <type>jar</type>
++        </dependency>
++        <dependency>
++            <groupId>${project.groupId}</groupId>
++            <artifactId>SpringService</artifactId>
++            <version>0.0.1-SNAPSHOT</version>
++        </dependency>
++        <dependency>
++            <groupId>${project.groupId}</groupId>
++            <artifactId>HidaLibraryWrapper</artifactId>
++            <version>0.0.1-SNAPSHOT</version>
+         </dependency>
+     </dependencies>
+ 
+@@ -48,7 +245,10 @@
+                 <groupId>org.codehaus.mojo</groupId>
+                 <artifactId>nbm-maven-plugin</artifactId>
+                 <version>3.11</version>
+-                <extensions>true</extensions>
++                <extensions>true</extensions> 
++                <configuration>
++-                    <requiresRestart>true</requiresRestart>
++                </configuration>
+             </plugin>
+ 
+             <plugin>
+@@ -57,8 +257,8 @@
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>2.5.1</version>
+                 <configuration>
+-                    <source>1.6</source>
+-                    <target>1.6</target>
++                    <source>1.7</source>
++                    <target>1.7</target>
+                 </configuration>
+             </plugin>
+ 
+diff --git a/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/SipUploader.java b/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/SipUploader.java
+new file mode 100755
+index 0000000..699c135
+--- /dev/null
++++ b/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/SipUploader.java
+@@ -0,0 +1,56 @@
++package gov.hawaii.digitalarchives.hida.kukini.sipcreation;
++
++import java.nio.file.Path;
++import java.util.List;
++import org.openide.loaders.DataObject;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.client.RestTemplate;
++
++/**
++ * Interface for creating and uploaded SIPs to a web servlet.
++ * 
++ * @author Keone Hiraide
++ */
++public interface SipUploader {
++ 
++    /**
++     * Creates a SIP using the @link{DataObject}s that are contained 
++     * within a List. The DataObjects in this List represent the files that
++     * the user currently has selected. The created SIP will reside
++     * in the default temporary-file directory. 
++     * 
++     * @param selectedContext The list of DataObjects which represent the files
++     *                        that the user currently has selected.
++     * @return The path to the newly created SIP or the throwing
++     *          of an exception if this method failed to create the SIP.
++     */
++    public Path createSipFromContext(List<DataObject> selectedContext);
++    
++    /**
++     * Creates a SIP using the @link{DataObject}s that are contained 
++     * within a List. The DataObjects in this List represent the files that
++     * the user currently has selected. 
++     * 
++     * @param selectedContext The list of DataObjects which represent the files
++     *                        that the user currently has selected.
++     * @param destinationDirectory destinationDirectory The destination where 
++     *                             the SIP will be bagged in place to.
++     * 
++     * @return  The path to the newly created SIP or the throwing
++     *          of an exception if this method failed to create the SIP.
++     */
++    public Path createSipFromContext(List<DataObject> selectedContext, Path destinationDirectory);
++    
++    /**
++     * Uploads the SIP to the Hawaii State Digital Archives.
++     * 
++     * @param sipPath The path to the SIP that will be uploadSiped.
++     * @param restTemplate The {@link RestTemplate} that will be used in order
++     *                     to create and execute an uploadSip request.
++     * 
++     * @return A {@link ResponseEntity} an instance which encapsulates 
++     *         information about the upload such as the the HTTP status code of the 
++     *         response, a message body, and headers. 
++     */
++    public ResponseEntity<String> uploadSip(Path sipPath, RestTemplate restTemplate);
++}
+diff --git a/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/SipUploaderImpl.java b/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/SipUploaderImpl.java
+new file mode 100644
+index 0000000..e9e63c8
+--- /dev/null
++++ b/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/SipUploaderImpl.java
+@@ -0,0 +1,242 @@
++package gov.hawaii.digitalarchives.hida.kukini.sipcreation;
++
++import com.fasterxml.jackson.databind.ObjectMapper;
++import gov.hawaii.digitalarchives.hida.bag.BagUtil;
++import gov.hawaii.digitalarchives.hida.core.exception.HidaIOException;
++import gov.hawaii.digitalarchives.hida.core.model.accession.Accession;
++import gov.hawaii.digitalarchives.hida.core.model.record.Agent;
++import gov.hawaii.digitalarchives.hida.core.model.record.ProducerInfo;
++import gov.hawaii.digitalarchives.hida.core.util.ZipUtil;
++import gov.hawaii.digitalarchives.hida.kukini.provenance.MachineInfoExtractor;
++import gov.hawaii.digitalarchives.hida.kukini.provenance.UserInformation;
++import java.io.File;
++import java.io.IOException;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.util.Date;
++import java.util.List;
++import org.apache.commons.io.FileUtils;
++import org.openide.filesystems.FileObject;
++import org.openide.filesystems.FileUtil;
++import org.openide.loaders.DataObject;
++import org.openide.util.Lookup;
++import org.slf4j.Logger;
++import org.springbyexample.util.log.AutowiredLogger;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.core.io.FileSystemResource;
++import org.springframework.http.ResponseEntity;
++import org.springframework.util.Assert;
++import org.springframework.util.LinkedMultiValueMap;
++import org.springframework.util.MultiValueMap;
++import org.springframework.web.client.RestTemplate;
++
++/**
++ * Contains methods for creating and uploading SIPs to servlets.
++ * 
++ * @author Keone Hiraide
++ */
++public class SipUploaderImpl implements SipUploader {
++    
++     // The URL to the servlet that will accept file uploads.
++    private final String sipUploaderServletURL;
++
++     // Bag module.
++    @Autowired
++    private BagUtil bagUtil;
++    
++     // Used for logging purposes.
++    @AutowiredLogger
++    private Logger log;
++
++     // Used for json data binding for the creation of sip tags.
++    private final ObjectMapper mapper = new ObjectMapper();
++    
++
++    // The ID of the records transmittal plan associated with the
++    // SIP that is created and uploaded.
++    //
++    //TODO: Retrieve the RTP ID from an actual RTP
++    //      which corresponds to the user that
++    //      is currently logged to Kukini.
++    private String rtpId = "ark:/0000/Stub";
++    
++    
++    /**
++     * Sets the URL to the servlet that will accept 
++     * file upload requests.
++     * 
++     * @param sipUploaderServletURL The URL to the servlet that will accept 
++     *                               file upload requests.
++     */
++    public SipUploaderImpl(String sipUploaderServletURL) {
++        this.sipUploaderServletURL = sipUploaderServletURL;
++    }
++
++    @Override
++    public Path createSipFromContext(List<DataObject> selectedContext, Path destinationDirectory) {
++        log.debug("Entering createSipFromContext(selectedContext={} destinationDirectory={})", 
++                selectedContext, destinationDirectory);
++        Assert.notNull(selectedContext);
++        Assert.notEmpty(selectedContext);
++        
++        try {
++           // Create the bag structure.
++            try {
++                Path dataDirectory = Files.createDirectories(destinationDirectory
++                        .resolve("accession/data"));
++                
++                Path rootDirectory = dataDirectory.getParent();
++                
++                // Copy selected files to "data" directory.
++                copySelectedFilesToDirectory(selectedContext, FileUtil.
++                        toFileObject(dataDirectory.toFile()));
++                
++                // Create sip tag within the "root" directory.
++                createAccessionMetadata(rootDirectory);
++                
++                bagUtil.makeComplete(rootDirectory);
++                
++                
++                // Make the bag in place at the destination directory.
++                Path sipPath = ZipUtil.compress(destinationDirectory);
++                    
++                log.debug("Exiting createSipFromContext(): {}", sipPath);
++                return sipPath;
++                          
++            } catch (IOException e) {
++                String errorMessage = "Failed to create the SIP from the selected"
++                        + " context.";
++                log.error(errorMessage, e);
++                throw new HidaIOException(errorMessage, e);
++            }           
++        } finally {
++            try {
++                if (destinationDirectory != null) {
++                    FileUtils.forceDelete(destinationDirectory.toFile());
++                }
++            } catch (IOException e) {
++                String errorMessage = "Failed to delete the temporary bag directory: '" 
++                        + destinationDirectory + "'";
++                log.error(errorMessage, e);
++                throw new HidaIOException(errorMessage, e);
++            }
++        }
++    }
++    
++
++    @Override
++    public Path createSipFromContext(List<DataObject> selectedContext) {
++        log.debug("Entering createSipFromContext(selectedContext={})", selectedContext);
++
++        try {
++            Path temporaryDestinationDirectory = Files.createTempDirectory(null);
++            temporaryDestinationDirectory.toFile().deleteOnExit();
++            temporaryDestinationDirectory = Files
++                    .move(temporaryDestinationDirectory, temporaryDestinationDirectory
++                    .resolveSibling("record_series_" + new Date().getTime()));
++            
++            Path sipPath = createSipFromContext(selectedContext, 
++                temporaryDestinationDirectory);
++            
++            log.debug("Exiting createSipFromContext(): {}", sipPath);
++            return sipPath;
++        } catch (IOException e) {
++            String errorMessage = "Failed to create the "
++                    + "temporary destination directory.";
++            log.error(errorMessage, e);
++            throw new HidaIOException(errorMessage, e);
++        } 
++    }
++    
++    @Override
++    public ResponseEntity<String> uploadSip(Path sipPath, RestTemplate restTemplate) {
++        log.debug("Entering upload(sipPath={}, restTemplate={}", sipPath, restTemplate);
++        Assert.notNull(sipPath);
++        // Send a POST request to a servlet in order to upload the SIP to HiDA.
++        MultiValueMap<String, Object> parts = new LinkedMultiValueMap<>();
++        parts.add("file", new FileSystemResource(sipPath.toFile()));
++        parts.add("rtpId", this.rtpId);
++        ResponseEntity<String> response = restTemplate
++            .postForEntity(this.sipUploaderServletURL, parts, 
++                    String.class);
++        
++        log.debug("Exiting upload(): {}", response);
++        return response;
++    }
++    
++    /**
++     * Creates an accession metadata sip tag that will be contained with
++     * the SIP bag. This accession metadata sip tag is created by the 
++     * serialization of an Accession Model Object in JSON format.
++     * 
++     * @param destinationDirectory The directory that the created 
++     *                             accession metadata sip tag will reside in.
++     * 
++     * @return The path to the accession metadata sip tag. 
++     */
++    private Path createAccessionMetadata(Path destinationDirectory) {
++        log.debug("Entering createAccessionMetadata(destinationDirectory = {})", 
++                destinationDirectory);
++        UserInformation userInformation = Lookup.getDefault().lookup(UserInformation.class);
++        String department = userInformation.getDepartment();
++        String division = userInformation.getDivision();
++        ProducerInfo producerInfo = new ProducerInfo(department, division, 
++                userInformation.getBranch());
++        MachineInfoExtractor machineInfo = Lookup.getDefault().lookup(MachineInfoExtractor.class);
++        Accession accession = new Accession();
++        accession.setRtpId(this.rtpId);
++        accession.setMachineInfo(machineInfo.getMachineInfoPair());
++        accession.setProducerInfo(producerInfo);
++        accession.setPreserver(new Agent("Hawaii State Archives", "Accessioning of Records"));
++        accession.setTransfererName(userInformation.getFullName());
++        accession.setAccessionCreationDate(new Date());
++        accession.setTransferMethod("Kukini HTTPS");
++        accession.setCreator(new Agent(department + ", " + division, "Records submitted to HIDA"));
++        
++        try {
++            Path sipTagPath = destinationDirectory.resolve("accession.json");
++            mapper.writeValue(sipTagPath.toFile(), accession);
++            log.debug("Exiting createAccessionMetadata(): {}", sipTagPath);
++            return sipTagPath;
++            
++        } catch (IOException e) {
++            String errorMessage = "Failed to serialize accession model object";
++            log.error(errorMessage, e);
++            throw new HidaIOException(errorMessage, e);
++        }
++    }
++    
++    
++    
++    /**
++     * Copies the files that the user has selected to a directory.
++     * 
++     * @param selectedContext A list containing the selected files.
++     * @param destinationDirectory The directory to copy the selected files to. 
++     */
++    private void copySelectedFilesToDirectory(List<DataObject> selectedContext,
++            FileObject destinationDirectory) {
++        log.debug("Entering copySelectedFilesToDirectory(selectedContext={}, "
++                + "destinationDirectory={})", selectedContext, destinationDirectory);
++        for (DataObject dataObject : selectedContext) {
++            FileObject selectedFile = dataObject.getPrimaryFile();        
++            try {
++                // Create the parent folder of the selected file within the
++                // directory. The parent folders of the parent
++                // folder is also created if they don't exist.
++                FileObject parentOfFile = FileUtil.createFolder(new File(destinationDirectory.getPath() + 
++                        FileUtil.normalizePath(selectedFile.getParent().getPath())
++                                .replaceFirst("([a-zA-Z]):","/$1_Hida_Volume")));
++           
++                // Copy the file within the temporaryb ag directory.
++                FileUtil.copyFile(selectedFile, parentOfFile, selectedFile.getName());
++            } catch (IOException e) {
++                String errorMessage = "Failed to copy the file " + selectedFile.getPath()
++                        + " to " + destinationDirectory.getPath();
++                log.error(errorMessage, e);
++                throw new HidaIOException(errorMessage, e);
++            }
++            log.debug("Exiting copySelectedFilesToDirectory()");
++        }
++    }
++}
+\ No newline at end of file
+diff --git a/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/UploadSipAction.java b/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/UploadSipAction.java
+new file mode 100644
+index 0000000..df5158e
+--- /dev/null
++++ b/src/main/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/UploadSipAction.java
+@@ -0,0 +1,114 @@
++package gov.hawaii.digitalarchives.hida.kukini.sipcreation;
++
++import gov.hawaii.digitalarchives.hida.core.exception.HidaIOException;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++import java.io.IOException;
++import java.nio.file.Path;
++import java.util.List;
++import javax.swing.JOptionPane;
++import org.apache.commons.io.FileUtils;
++import org.openide.loaders.DataObject;
++import org.openide.awt.ActionID;
++import org.openide.awt.ActionReference;
++import org.openide.awt.ActionRegistration;
++import org.openide.util.NbBundle.Messages;
++import org.slf4j.Logger;
++import org.slf4j.LoggerFactory;
++import org.springframework.http.HttpStatus;
++import org.springframework.http.ResponseEntity;
++import org.springframework.web.client.RestTemplate;
++import static gov.hawaii.digitalarchives.hida.kukini.sipcreation.Bundle.*;
++import gov.hawaii.digitalarchives.hida.kukini.springservice.SpringServiceProvider;
++import org.openide.util.Lookup;
++
++@ActionID(
++        category = "File",
++        id = "gov.hawaii.digitalarchives.hida.kukini.sipcreation.UploadSipAction"
++)
++@ActionRegistration(
++        displayName = "#CTL_UploadSipAction"
++)
++@ActionReference(path = "Menu/File", position = 1300)
++@Messages("CTL_UploadSipAction=Upload")
++/**
++ * Creates an action which will be activated when the user selects
++ * DataObjects. These DataObjects represent the files that the user currently
++ * has selected. If the action has been executed, the selected DataObjects
++ * will be copied, bagged, and then uploaded to HiDA.
++ */
++public class UploadSipAction implements ActionListener {
++
++     // A List holding the files that the user currently has selected.
++    private final List<DataObject> selectedContext;
++    
++     // Used in order to create and upload SIPS to HiDA.
++    private final SipUploader sipUploader;
++    
++     // {@link RestTemplate} instance used to send POST requests to a servlet
++     // in order to upload files.
++    private final RestTemplate restTemplate;
++    
++     // Used for logging.
++    private final Logger log = LoggerFactory.getLogger(UploadSipAction.class);
++    
++
++    /**
++     * 
++     * Retrieve the selected context, inject our Bag and restTemplate beans.
++     * 
++     * @param context The DataObjects that the user has currently selected.
++     */
++    public UploadSipAction(List<DataObject> selectedContext) {
++        this.selectedContext = selectedContext;
++        SpringServiceProvider ssp = Lookup.getDefault().lookup(SpringServiceProvider.class);
++        this.sipUploader = (SipUploader) ssp.getBean("upload");
++        this.restTemplate =(RestTemplate) ssp.getBean("restTemplate");
++    }
++    
++
++    /**
++     * Uploads the files that are currently selected to HiDA.
++     * 
++     * @param ev A semantic event which indicates that a component-defined 
++     *            action occurred.
++     */
++    @Override
++    @Messages({
++         "# {0} - response",
++         "unsuccessfulMessage=Could not transfer your records at this time. "
++                 + "We apologize for inconvenience. "
++                 + "\n Please contact the Hawaii State Digital Archives at 'hiraide@hawaii.edu' "
++                 + "for support. \n Error: {0}",
++         "successfulMessage=Your records have been successfully transferred. Thank you."
++    })
++    public void actionPerformed(ActionEvent ev) {
++        log.debug("Entering actionPerformed(ev={})", ev);
++       
++        Path sipPath = null;
++        try {
++            sipPath = sipUploader.createSipFromContext(selectedContext);
++            ResponseEntity<String> response = sipUploader.uploadSip(sipPath, restTemplate);
++ 
++            // Were we able to successfully upload the SIP?
++            if (response.getStatusCode() == HttpStatus.CREATED) {
++                JOptionPane.showMessageDialog(null, successfulMessage());
++            }
++            else {
++                JOptionPane.showMessageDialog(null,  unsuccessfulMessage(response));
++                log.error("Upload failed with a response of: " + response);
++            }
++        } finally {
++            try {
++                if (sipPath != null) {     
++                    FileUtils.forceDelete(sipPath.toFile());
++                }
++            } catch (IOException e) {
++                JOptionPane.showMessageDialog(null, unsuccessfulMessage(e));
++                String errorMessage = "Failed to delete the sip.";
++                log.error(errorMessage, e);
++                throw new HidaIOException(errorMessage, e);
++            }
++        }
++    }    
++}
+diff --git a/src/main/nbm/manifest.mf b/src/main/nbm/manifest.mf
+old mode 100644
+new mode 100755
+index eef76be..2da954d
+--- a/src/main/nbm/manifest.mf
++++ b/src/main/nbm/manifest.mf
+@@ -1,2 +1,4 @@
+ Manifest-Version: 1.0
+ OpenIDE-Module-Localizing-Bundle: gov/hawaii/digitalarchives/hida/kukini/sipcreation/Bundle.properties
++AutoUpdate-Essential-Module: true
++OpenIDE-Module-Requires: org.openide.windows.WindowManager
+diff --git a/src/main/resources/gov/hawaii/digitalarchives/hida/kukini/sipcreation/Bundle.properties b/src/main/resources/gov/hawaii/digitalarchives/hida/kukini/sipcreation/Bundle.properties
+old mode 100644
+new mode 100755
+index e999176..e69de29
+--- a/src/main/resources/gov/hawaii/digitalarchives/hida/kukini/sipcreation/Bundle.properties
++++ b/src/main/resources/gov/hawaii/digitalarchives/hida/kukini/sipcreation/Bundle.properties
+@@ -1,5 +0,0 @@
+-# Localized module labels. Defaults taken from POM (<name>, <description>, <groupId>) if unset.
+-#OpenIDE-Module-Name=
+-#OpenIDE-Module-Short-Description=
+-#OpenIDE-Module-Long-Description=
+-#OpenIDE-Module-Display-Category=
+diff --git a/src/main/resources/logback.xml b/src/main/resources/logback.xml
+new file mode 100755
+index 0000000..2def33e
+--- /dev/null
++++ b/src/main/resources/logback.xml
+@@ -0,0 +1,40 @@
++<configuration>
++
++	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
++		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
++			by default -->
++		<encoder>
++			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
++			</pattern>
++		</encoder>
++
++
++
++	</appender>
++
++	<appender name="FILE"
++		class="ch.qos.logback.core.rolling.RollingFileAppender">
++		<file>logFile.log</file>
++		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
++			<!-- daily rollover -->
++			<fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
++
++			<!-- keep 1 days' worth of history -->
++			<maxHistory>5</maxHistory>
++		</rollingPolicy>
++
++		<encoder>
++			<pattern>%d{HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{35}
++				- %msg%n</pattern>
++		</encoder>
++
++
++	</appender>
++
++	<root level="info" additivity="false">
++		<appender-ref ref="STDOUT" />
++		<appender-ref ref="FILE" />
++	</root>
++
++
++</configuration>
+\ No newline at end of file
+diff --git a/src/test/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/UploadImplTest.java b/src/test/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/UploadImplTest.java
+new file mode 100644
+index 0000000..edea360
+--- /dev/null
++++ b/src/test/java/gov/hawaii/digitalarchives/hida/kukini/sipcreation/UploadImplTest.java
+@@ -0,0 +1,220 @@
++package gov.hawaii.digitalarchives.hida.kukini.sipcreation;
++
++import com.fasterxml.jackson.databind.ObjectMapper;
++import gov.hawaii.digitalarchives.hida.core.model.accession.Accession;
++import gov.hawaii.digitalarchives.hida.core.util.ZipUtil;
++import gov.hawaii.digitalarchives.hida.kukini.provenance.SigarNativeLibraryUtil;
++import gov.hawaii.digitalarchives.hida.kukini.provenance.UserInformation;
++import gov.hawaii.digitalarchives.hida.kukini.springservice.SpringServiceProvider;
++import java.io.File;
++import java.io.FileOutputStream;
++import java.io.IOException;
++import java.io.InputStream;
++import java.io.OutputStream;
++import java.net.URISyntaxException;
++import java.nio.file.FileSystems;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.nio.file.Paths;
++import java.util.ArrayList;
++import java.util.Enumeration;
++import java.util.List;
++import java.util.zip.ZipEntry;
++import java.util.zip.ZipFile;
++import org.apache.commons.io.FileUtils;
++import org.openide.filesystems.FileObject;
++import org.openide.filesystems.LocalFileSystem;
++import org.openide.loaders.DataObject;
++import org.openide.util.Lookup;
++import org.springframework.http.HttpMethod;
++import org.springframework.http.MediaType;
++import org.springframework.test.web.client.MockRestServiceServer;
++import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
++import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
++import org.testng.Assert;
++import org.springframework.web.client.RestTemplate;
++import org.testng.annotations.AfterMethod;
++import org.testng.annotations.BeforeTest;
++import org.testng.annotations.Test;
++
++/**
++ * Tests the {@link UploadImpl} class.
++ * author Keone Hiraide
++ */
++public class UploadImplTest {
++    
++     // Interface of class that we would like to test. 
++    private SipUploader upload = (SipUploader)Lookup.getDefault()
++            .lookup(SpringServiceProvider.class).getBean("upload");
++     // Used to represent the selected context.
++    private final List<DataObject> selectedContext = new ArrayList<>();
++    
++     // The URL to the mock servlet which will accept POST requests.
++    private String testSipUploaderServletURL = "http://artemis.digitalarchives.hawaii.gov/"
++            + "web-ingest-application/uploader/accessions";
++    
++    private Path sipPath;
++    
++    @BeforeTest
++    public void setup () throws URISyntaxException, IOException, Exception
++    {
++        
++        loadNativeLibraryFromProvenanceModule();
++        
++        // User information is normally extracted at login time. But in this
++        // case, we sill manually set the user information so that a SIP tag
++        // can properly be created. The reason is becauseAccessions contain ProducerInfo 
++        // objects, and ProducerInfo objects cannot have a null division, department, and branch.
++        UserInformation userInformation = Lookup.getDefault().lookup(UserInformation.class);
++        userInformation.setDivision("division");
++        userInformation.setDepartment("department");
++        userInformation.setBranch("branch");
++        userInformation.setFullName("John Doe");
++        
++        // Getting a FileObject which represents the directory which
++        // holds the resources used for testing.
++        FileObject testResourcesDirectory = new LocalFileSystem().getRoot()
++                .getFileObject("src/test/resources/testfiles");
++        
++        // Getting the file objects within the test resources directory
++        // and turning them into DataObjects. These DataObjects will then be
++        // stored in a List to be used to test our methods.
++        for (FileObject testResource : testResourcesDirectory.getChildren()) {
++            DataObject testResourceDataObject = DataObject.find(testResource);
++            Assert.assertNotNull(testResourceDataObject);
++            selectedContext.add(testResourceDataObject);
++        }
++    }
++    
++    @AfterMethod
++    public void deleteTemporaryDirectory() throws IOException, InterruptedException {
++        File sipFile = sipPath.toFile();
++        if (sipFile != null && sipFile.exists()) {
++            FileUtils.forceDelete(sipFile);
++        }
++    }
++    
++    /**
++     * Testing the bagSelectedContext method's ability to properly
++     * bag a collection of DataObjects which represents the
++     * selected context. The selected context represents the files
++     * that are currently selected within Kukini's GUI.
++     */
++    @Test
++    public void bagSelectedContextTest() throws InterruptedException{
++            
++        // If the bagging was successful, a path to the SIP
++        // should be returned.
++        sipPath = upload.createSipFromContext(selectedContext);
++        Assert.assertNotNull(sipPath);
++        try (ZipFile sipZipFile = new ZipFile(sipPath.toString())) {
++            for (DataObject selectedFile : selectedContext) {
++                boolean found = false;
++                Enumeration sipFiles = sipZipFile.entries();
++                while (sipFiles.hasMoreElements()) {
++                    ZipEntry sipFile = (ZipEntry)sipFiles.nextElement();
++                    if (sipFile.getName().contains(selectedFile.getPrimaryFile()
++                            .getPath()
++                            .replaceFirst("([a-zA-Z]):","/$1"))) {
++                        found = true;
++                        break;
++                    }
++                }
++                Assert.assertTrue(found, "The sip did not contain the selected file: " + 
++                        selectedFile.getName());
++            }
++        }
++        catch (IOException e) {
++            Assert.fail("Failed to create ZipFile instance.", e);
++        }
++    }
++    
++    /**
++     * Tests the bagSelectedContext method which takes in a destination
++     * parameter.
++     */
++    @Test 
++    public void bagSelectedContextTestWithDestination() {
++        try {
++            Path destinationDirectory = Files.createTempDirectory(null);
++            destinationDirectory.toFile().deleteOnExit();
++            sipPath = upload.createSipFromContext(selectedContext, destinationDirectory);
++        } catch (IOException e) {
++            Assert.fail("Failed to create destination directory.", e);
++        } 
++    }
++    
++    /**
++     * Tests a POST request to a mock server. This method tests the 
++     * {@link UploadImpl} class' uploadSip(Path, RestTemplate) method.
++     */
++    @Test
++    public void uploadSipPathTest() throws URISyntaxException, IOException {
++        RestTemplate restTemplate = new RestTemplate();
++        MockRestServiceServer mockServer = MockRestServiceServer.createServer(restTemplate);
++        mockServer.expect(requestTo(testSipUploaderServletURL))
++                .andExpect(method(HttpMethod.POST))
++                .andRespond(withSuccess("uploadSuccessful", MediaType.APPLICATION_JSON));
++        
++        Path sipPath = Paths.get(this.getClass().getClassLoader().getResource("testBag.zip")
++                .toURI());
++        upload.uploadSip(sipPath, restTemplate);
++        mockServer.verify();
++    }
++    
++    /**
++     * Tests whether the SIP Tag within a bag can successfully be 
++     * deserialized into an Accession object instance.
++     */
++    @Test
++    public void sipTagTest() throws IOException, InterruptedException, URISyntaxException {
++        Path sipPath = Paths.get(this.getClass().getClassLoader().getResource("testBag.zip")
++                .toURI());
++        Path sipTagParent = sipPath.getParent();
++        Path sipTagPath = sipTagParent.resolve("accession.json");
++        try (java.nio.file.FileSystem fs = FileSystems.newFileSystem(sipPath, null)) {
++             ZipUtil.copyFile(fs.getPath("/accession/accession.json"), sipTagParent);
++            
++            // Deserializing the Accession sip tag to create an Accession.
++            ObjectMapper mapper = new ObjectMapper();
++            Accession accession = mapper.readValue(sipTagPath.toFile(), Accession.class);
++            Assert.assertEquals(accession.getRtpId(), "ark:/0000/Stub");
++            Assert.assertNotNull(accession.getMachineInfo());
++            Assert.assertNotNull(accession.getProducerInfo());
++            Assert.assertNotNull(accession.getPreserver());
++            Assert.assertNotNull(accession.getTransfererName());
++            Assert.assertNotNull(accession.getAccessionCreationDate());
++            Assert.assertNotNull(accession.getTransferMethod());
++            Assert.assertNotNull(accession.getCreator());
++        } finally {
++            if (sipTagPath != null) {
++                FileUtils.forceDelete(sipTagPath.toFile());
++            }
++        }
++    }
++    
++    /**
++     * Will load the appropriate sigar native library from the provenance
++     * module based on the architecture and OS of the user's machine.
++     */
++    private void loadNativeLibraryFromProvenanceModule() throws IOException {
++        ClassLoader syscl = Lookup.getDefault().lookup(ClassLoader.class);
++        String nativeLibrary = SigarNativeLibraryUtil.getAppropriateNativeLibrary();
++	File nativeLibraryFile = new File(nativeLibrary);
++        nativeLibraryFile.deleteOnExit();
++ 
++        // Write the inputStream to a FileOutputStream
++        try (
++            InputStream in = syscl.getResourceAsStream(nativeLibrary);
++            OutputStream out = new FileOutputStream(nativeLibraryFile);
++        ) {
++            int read = 0;
++            byte[] bytes = new byte[1024];
++            while ((read = in.read(bytes)) != -1) {
++                out.write(bytes, 0, read);
++            }
++        }
++        System.load(nativeLibraryFile
++                .getAbsolutePath());
++    }
++}
+\ No newline at end of file
+diff --git a/src/test/resources/testBag.zip b/src/test/resources/testBag.zip
+new file mode 100644
+index 0000000..375b6a2
+Binary files /dev/null and b/src/test/resources/testBag.zip differ
+diff --git a/src/test/resources/testfiles/monsoon.txt b/src/test/resources/testfiles/monsoon.txt
+new file mode 100644
+index 0000000..ba64ed8
+--- /dev/null
++++ b/src/test/resources/testfiles/monsoon.txt
+@@ -0,0 +1 @@
++south east asian wind
+\ No newline at end of file
+diff --git a/src/test/resources/testfiles/pmc/mistral.txt b/src/test/resources/testfiles/pmc/mistral.txt
+new file mode 100644
+index 0000000..86c8438
+--- /dev/null
++++ b/src/test/resources/testfiles/pmc/mistral.txt
+@@ -0,0 +1 @@
++french wind
+\ No newline at end of file
+diff --git a/src/test/resources/testfiles/pmc/sundowner.txt b/src/test/resources/testfiles/pmc/sundowner.txt
+new file mode 100644
+index 0000000..586bb32
+--- /dev/null
++++ b/src/test/resources/testfiles/pmc/sundowner.txt
+@@ -0,0 +1 @@
++southern californian wind
+\ No newline at end of file

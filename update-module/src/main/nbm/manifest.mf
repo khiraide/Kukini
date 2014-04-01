@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Install: gov/hawaii/digitalarchives/hida/kukini/update/AutoInstaller.class
+OpenIDE-Module-Layer: gov/hawaii/digitalarchives/hida/kukini/update/layer.xml
+OpenIDE-Module-Localizing-Bundle: gov/hawaii/digitalarchives/hida/kukini/update/Bundle.properties
+AutoUpdate-Essential-Module: true
