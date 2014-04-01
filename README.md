@@ -26,6 +26,8 @@ mvn install:install-file -Dfile=persistent-id-module-1.0-SNAPSHOT.jar -Dartifact
 
 mvn install:install-file -Dfile=space-module-1.0-SNAPSHOT.jar -DartifactId=space-module -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
 
+mvn install:install-file -Dfile=hida-core-1.0-SNAPSHOT.jar -DartifactId=hida-core -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
 ```
 
 5.  Build and test the system
