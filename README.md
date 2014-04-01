@@ -30,10 +30,32 @@ mvn install:install-file -Dfile=hida-core-1.0-SNAPSHOT.jar -DartifactId=hida-cor
 
 ```
 
-5.  Build and test the system
+5  Install Tomcat 7
+-----------------------------
+Tomcat 7 is used to deploy the SIP Transfer Servlet. Using Ubuntu, Tomcat 7 can be installed with the commmand:
+
+```
+sudo apt-get install tomcat7
+
+```
+
+
+6 Deploy the SIP Transfer Servlet
+-----------------------------
+Deploy the SIP Transfer Servlet war file in the libs directory. The war file is called, sipuploader.war
+
+
+
+6  Build and test the system
 -----------------------------
 
 Now that everything is installed, build and test the system. You use the standard Maven 'install' target.
+
+```
+mvn install
+
+```
+
 
 Now to run the application, change to the application-module directory. Run the maven command:
 
