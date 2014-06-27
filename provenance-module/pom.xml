@@ -114,6 +114,12 @@
                     </publicPackages>
                     <requiresRestart>true</requiresRestart>
                     <nbmResources> 
+                        <!-- Placing the sigar native libraries found under src/main/resources
+                             in the modules/lib directory. The InstalledFileLocator.getDefault() 
+                             call originating in the SigarNativeLibraryInstaller class 
+                             will try to locate the native library files under the modules/lib/ directory. 
+                             See http://bits.netbeans.org/dev/javadoc/org-openide-modules/org/openide/modules/doc-files/api.html#jni 
+                             For more information on how the Netbeans Platform makes use of JNI native libraries. -->
                         <nbmResource> 
                             <directory>src/main/resources</directory> 
                             <targetPath>modules/lib</targetPath> 

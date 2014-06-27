@@ -53,4 +53,9 @@ public interface SipUploader {
      *         response, a message body, and headers. 
      */
     public ResponseEntity<String> uploadSip(Path sipPath, RestTemplate restTemplate);
+
+    /**
+     * @return The URL to the SipUploader servlet.
+     */
+    public String getSipUploaderServletURL();
 }

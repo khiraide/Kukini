@@ -14,11 +14,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import org.netbeans.api.settings.ConvertAsProperties;
-import org.openide.DialogDisplayer;
-import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.awt.StatusLineElementProvider;
 import org.openide.loaders.DataObject;
 import org.openide.util.Lookup;
 import org.openide.util.LookupEvent;
@@ -127,12 +124,6 @@ public final class TransferTopComponent extends TopComponent implements LookupLi
     }// </editor-fold>//GEN-END:initComponents
 
     private void transferButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferButtonActionPerformed
-                NotifyDescriptor nd = new NotifyDescriptor
-                                .Message("Updates were automatically detected and installed. "
-                                + "Your Kukini application will now restart.", 
-                                        NotifyDescriptor.INFORMATION_MESSAGE);
-        // Display a notification dialog to the user.
-//                        DialogDisplayer.getDefault().notify(nd);
         new UploadSipAction(selectedContext).actionPerformed(evt);
     }//GEN-LAST:event_transferButtonActionPerformed
 

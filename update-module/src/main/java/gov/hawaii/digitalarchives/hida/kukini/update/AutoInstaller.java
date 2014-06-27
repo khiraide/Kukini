@@ -9,10 +9,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.netbeans.api.autoupdate.InstallSupport;
 import org.netbeans.api.autoupdate.OperationContainer;
-import org.netbeans.api.autoupdate.OperationContainer.OperationInfo;
 import org.netbeans.api.autoupdate.OperationException;
 import org.netbeans.api.autoupdate.OperationSupport;
-import org.netbeans.api.autoupdate.OperationSupport.Restarter;
 import org.netbeans.api.autoupdate.UpdateElement;
 import org.netbeans.api.autoupdate.UpdateManager;
 import org.netbeans.api.autoupdate.UpdateUnit;
@@ -70,7 +68,6 @@ public class AutoInstaller extends ModuleInstall {
         
         @Override
         public void run() {
-            
             // Searches the update centers and loads this information about the 
             // provided modules.
             searchNewAndUpdatedModules();
@@ -91,7 +88,6 @@ public class AutoInstaller extends ModuleInstall {
          * provided modules.
          */
         public void searchNewAndUpdatedModules () {
-            
             // Getting all the update centers.
             for (UpdateUnitProvider provider : UpdateUnitProviderFactory
                     .getDefault().getUpdateUnitProviders(false)) {
@@ -99,7 +95,6 @@ public class AutoInstaller extends ModuleInstall {
                     // Just something you call in order to refresh
                     // the update center.
                     provider.refresh(null, true);
-                    
                 } catch (IOException ex) {
                     LOG.severe(ex.getMessage());
                 }

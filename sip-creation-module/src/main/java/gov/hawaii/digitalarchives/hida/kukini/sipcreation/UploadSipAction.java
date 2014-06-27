@@ -20,7 +20,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import static gov.hawaii.digitalarchives.hida.kukini.sipcreation.Bundle.*;
 import gov.hawaii.digitalarchives.hida.kukini.springservice.SpringServiceProvider;
-import org.openide.util.Exceptions;
 import org.openide.util.Lookup;
 
 @ActionID(
@@ -101,13 +100,7 @@ public class UploadSipAction implements ActionListener {
             }
         } finally {
             try {
-                if (sipPath != null) {
-                    System.gc();
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException ex) {
-                        Exceptions.printStackTrace(ex);
-                    }
+                if (sipPath != null) {     
                     FileUtils.forceDelete(sipPath.toFile());
                 }
             } catch (IOException e) {

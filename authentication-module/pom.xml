@@ -102,7 +102,7 @@
         <dependency>
             <groupId>gov.hawaii.digitalarchives</groupId>
             <artifactId>Provenance</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>

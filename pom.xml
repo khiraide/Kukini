@@ -54,13 +54,13 @@
 
     <modules>
         <module>branding-module</module>
-    	<module>HidaLibraryWrapper</module>
+    	<module>hidalibrarywrapper</module>
         <module>application-module</module>
         <module>sip-creation-module</module>
         <module>authentication-module</module>
-    	<module>update-module</module>
-	<module>SpringService</module>
+	<module>spring-service-module</module>
         <module>provenance-module</module>
+<!--        <module>update-module</module>-->
     </modules>
 
     <properties>

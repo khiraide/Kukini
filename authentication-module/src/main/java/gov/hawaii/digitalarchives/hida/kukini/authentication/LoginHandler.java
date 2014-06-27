@@ -74,8 +74,7 @@ public class LoginHandler implements ActionListener {
             LifecycleManager.getDefault().exit();
         }
         else {
-            //login();
-            dialogDescriptor.setClosingOptions(null);
+            login();
         }
         log.debug("Entering actionPerformed()");
     }
@@ -86,12 +85,13 @@ public class LoginHandler implements ActionListener {
      */
     private void login () {
         log.debug("Entering login()");
-        if (!SecurityManager.getDefault().login(loginPanel.getUsername(), 
-                loginPanel.getPasswordField())) {
-                JOptionPane.showMessageDialog(null, "Wrong username or password");   
-        } else {
+        SecurityManager.getDefault().login("user", "password");
+//        if (!SecurityManager.getDefault().login(loginPanel.getUsername(), 
+//                loginPanel.getPasswordField())) {
+//                JOptionPane.showMessageDialog(null, "Wrong username or password");   
+//        } else {
             dialogDescriptor.setClosingOptions(null);
-        }
+//        }
         log.debug("Exiting login()");
     }
 }

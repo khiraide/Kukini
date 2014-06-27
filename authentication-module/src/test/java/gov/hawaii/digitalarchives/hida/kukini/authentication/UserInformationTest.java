@@ -18,7 +18,7 @@
 //    
 //    @Test
 //    public void testUserInformationExtraction() {
-//        // Login with the crendentials of an authorized user.
+//        // Login with the credentials of an authorized user.
 //        SecurityManager.getDefault().login(validUsername, validPassword);
 //        
 //        // Check whether the user information that is extracted at login time
@@ -30,15 +30,15 @@
 //        Assert.assertEquals(userInformation.getDivision(), "Hawaii State Archives");
 //        Assert.assertEquals(userInformation.getBranch(), "Digital Archives");
 //       
-////        // Login again with a different user.
-////        SecurityManager.getDefault().login(validUsername2, validPassword);
-////        
-////        // The user information should change to match the currently logged in
-////        // user.
-////        userInformation = Lookup.getDefault().lookup(UserInformation.class);
-////        Assert.assertEquals(userInformation.getFullName(), "John Doe");
-////        Assert.assertEquals(userInformation.getDepartment(), "Department of the Doe");
-////        Assert.assertEquals(userInformation.getDivision(), "Doe Division");
-////        Assert.assertEquals(userInformation.getBranch(), "Doe Branch");
+//        // Login again with a different user.
+//        SecurityManager.getDefault().login(validUsername2, validPassword);
+//        
+//        // The user information should change to match the currently logged in
+//        // user.
+//        userInformation = Lookup.getDefault().lookup(UserInformation.class);
+//        Assert.assertEquals(userInformation.getFullName(), "John Doe");
+//        Assert.assertEquals(userInformation.getDepartment(), "Department of the Doe");
+//        Assert.assertEquals(userInformation.getDivision(), "Doe Division");
+//        Assert.assertEquals(userInformation.getBranch(), "Doe Branch");
 //    }
 //}

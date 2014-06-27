@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.hawaii.digitalarchives</groupId>
     <artifactId>SIPCreation</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <packaging>nbm</packaging>
 
     <name>SIPCreation</name>
@@ -224,7 +224,7 @@
         <dependency>
             <groupId>gov.hawaii.digitalarchives</groupId>
             <artifactId>Provenance</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
         <dependency>
@@ -236,11 +236,6 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>HidaLibraryWrapper</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.netbeans.api</groupId>
-            <artifactId>org-openide-dialogs</artifactId>
-            <version>RELEASE731</version>
         </dependency>
     </dependencies>
 

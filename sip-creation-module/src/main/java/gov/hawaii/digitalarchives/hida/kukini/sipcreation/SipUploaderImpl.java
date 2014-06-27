@@ -19,7 +19,6 @@ import org.apache.commons.io.FileUtils;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataObject;
-import org.openide.util.Exceptions;
 import org.openide.util.Lookup;
 import org.slf4j.Logger;
 import org.springbyexample.util.log.AutowiredLogger;
@@ -113,12 +112,6 @@ public class SipUploaderImpl implements SipUploader {
         } finally {
             try {
                 if (destinationDirectory != null) {
-                    System.gc();
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException ex) {
-                        Exceptions.printStackTrace(ex);
-                    }
                     FileUtils.forceDelete(destinationDirectory.toFile());
                 }
             } catch (IOException e) {
@@ -245,5 +238,12 @@ public class SipUploaderImpl implements SipUploader {
             }
             log.debug("Exiting copySelectedFilesToDirectory()");
         }
+    }
+
+    @Override
+    public String getSipUploaderServletURL() {
+        log.debug("Entering getSipUploaderServletURL()");
+        log.debug("Exiting getSipUploaderServletURL(): {}", sipUploaderServletURL);
+        return sipUploaderServletURL;
     }
 }
