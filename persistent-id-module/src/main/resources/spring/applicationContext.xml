@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<context:component-scan base-package="gov.hawaii.digitalarchives.hida.persistentid" />
+	
+	<bean id="loggerBean" class="org.springbyexample.util.log.AnnotationLoggerBeanPostProcessor" />
+
+	<bean id="dbhome" class="java.nio.file.Paths" factory-method="get">
+		<constructor-arg index="0">
+			<value type="java.lang.String">webapps/web-ingest-application/WEB-INF/pid/</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<list></list>
+		</constructor-arg>
+	</bean>
+
+	<bean class="gov.hawaii.digitalarchives.hida.persistentid.Hark$HarkFactory$ArkFactory">
+		<constructor-arg type="java.lang.String" value=".ze" />
+		<constructor-arg type="java.lang.String" value="70111" />
+		<constructor-arg type="java.nio.file.Path" ref="dbhome" />
+	</bean>
+	
+  	<bean class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+		<property name="serviceLocatorInterface" value="gov.hawaii.digitalarchives.hida.persistentid.PersistentIdBuilderLocator"></property>
+	</bean>
+	
+	<bean class="gov.hawaii.digitalarchives.hida.persistentid.DefaultPersistentIdFactory">
+		<property name="scheme" value="#{T(gov.hawaii.digitalarchives.hida.persistentid.Ark).SCHEME}" />
+	</bean>
+</beans>

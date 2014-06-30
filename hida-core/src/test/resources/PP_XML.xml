@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HiDA_MD:PreservationPlan createdate="2013-06-05 09:46:00" lastmoddate="2013-06-05 09:46:00"
+    OBJID="ark:/12345/primaryId"
+LABEL="Hawaii State Archives Digital Preservation Plan v0.5">
+	<HiDA_MD:formatPlan ID=".doc 97-2003"> 
+		<HiDA_MD:nativeFormat ID=".doc">FMT/40</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".docx">FMT/412</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".docx 97-current"> 
+		<HiDA_MD:nativeFormat ID=".docx">FMT/412</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".docx">FMT/412</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 2000-2002"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/78</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 2.6"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/72</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 2.5"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/71</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 2.2"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/70</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 2.1"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/69</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 2.0"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/68</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 1.4"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/67</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 1.3"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/66</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 1.2"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/67</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".dxf 1.0"> 
+		<HiDA_MD:nativeFormat ID=".dxf">FMT/64</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat />
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.7"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/276</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.6"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/20</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.5"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/19</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.4"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/18</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.3"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/17</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.2"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/16</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.1"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/15</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat/>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf 1.0"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/14</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf/A 1A"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/95</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".pdf/A 1B"> 
+		<HiDA_MD:nativeFormat ID=".pdf">FMT/354</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".pdf/A">FMT/95</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".pdf/A">FMT/95</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	<HiDA_MD:formatPlan ID=".tif"> 
+		<HiDA_MD:nativeFormat ID=".tif">FMT/353</HiDA_MD:nativeFormat>
+		<HiDA_MD:preservationFormat ID=".tif">FMT/353</HiDA_MD:preservationFormat>
+		<HiDA_MD:presentationFormat ID=".jpx">FMT/151</HiDA_MD:presentationFormat>
+		<HiDA_MD:thumbnailFormat ID=".jpg">FMT/42</HiDA_MD:thumbnailFormat>
+	</HiDA_MD:formatPlan>
+	
+	
+</HiDA_MD:PreservationPlan>

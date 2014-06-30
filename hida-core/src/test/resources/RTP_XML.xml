@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RecordsTransmittalPlan createDate="date plan was created" lastModDate="date of last update"
+    OBJID="ark:/12345/primaryId"
+LABEL="Name of the RTP goes here; should be in the format of Agency -- Record Series"
+PROFILE="When the profile is registered, the link to the LoC profile will go here">
+
+    <HiDA_MD:recordsProducer>
+        <HiDA_MD:department>controlled vocab</HiDA_MD:department>
+        <HiDA_MD:division>controlled vocab</HiDA_MD:division>
+        <HiDA_MD:branch></HiDA_MD:branch>
+        <HiDA_MD:agencyContact>[repeat as necessary]
+            <HiDA_MD:contactType>controlled vocab: business unit contact, IT contact, Fiscal Contact, Dept Records Officer</HiDA_MD:contactType>
+            <HiDA_MD:name></HiDA_MD:name>
+            <HiDA_MD:title></HiDA_MD:title>
+            <HiDA_MD:phone></HiDA_MD:phone>
+            <HiDA_MD:email></HiDA_MD:email>
+        </HiDA_MD:agencyContact>
+    </HiDA_MD:recordsProducer>
+
+    <HiDA_MD:seriesInfo>
+            <HiDA_MD:seriesNumber>Controlled vocab from HiDA database</HiDA_MD:seriesNumber>
+            <HiDA_MD:scheduleType>DRS or GRS</HiDA_MD:scheduleType>
+            <HiDA_MD:seriesName>Auto fill from seriesNumber</HiDA_MD:seriesName>
+            <HiDA_MD:hasRestriction>Yes/No</HiDA_MD:hasRestriction>
+            <HiDA_MD:contentsDescription>Detailed description of the contents of the transfer</HiDA_MD:contentsDescription>
+            <HiDA_MD:sysName>Name of the system producing the record</HiDA_MD:sysName>
+            <HiDA_MD:startDate></HiDA_MD:startDate>
+            <HiDA_MD:endDate></HiDA_MD:endDate>
+            <HiDA_MD:citationBlock>The content of the citation block for this record series goes here</HiDA_MD:citationBlock>
+            <HiDA_MD:digitalObjectAssoc>controlled vocabulary (e.g. file name/single, file name/multi, index file) </HiDA_MD:digitalObjectAssoc>
+            <HiDA_MD:transferFormatInfo>
+                <HiDA_MD:transferFormat>[repeat for each type of file in transfer]
+                    <HiDA_MD:formatType>Type of file format; controlled vocab of file format names, stored as PRONOM FMTs</HiDA_MD:formatType>
+                    <HiDA_MD:arity>Number of that type of file to be expected; controlled vocab (1, 2, 3, 4, 10-25, 25-100, 100+)</HiDA_MD:arity>
+                    <HiDA_MD:fullRestriction>
+                        <HiDA_MD:isFullFormatRestricted>yes/no [Are all digital objects of this format restricted]</HiDA_MD:isFullFormatRestricted>
+                        <HiDA_MD:legalCitation>[repeat as necessary for each citation that affects this file format]
+                            <HiDA_MD:accessRestrictions>what is the restriction</HiDA_MD:accessRestrictions>
+                            <HiDA_MD:restrictionReason>what is the reason that restriction applies to this format</HiDA_MD:restrictionReason>
+                            <HiDA_MD:citation>what is the legal citation the authorizes this restriction</HiDA_MD:citation>
+                            <HiDA_MD:jurisdiction>controlled vocabulary (city, county, state, federal)</HiDA_MD:jurisdiction>
+                        </HiDA_MD:legalCitation>    
+                    </HiDA_MD:fullRestriction>
+                    <HiDA_MD:indexFile>
+                        <HiDA_MD:isIndex>Yes/No</HiDA_MD:isIndex>
+                        <HiDA_MD:indexName>Enter name of index file if consistent</HiDA_MD:indexName>
+                        <HiDA_MD:hasImage>Controlled Vocabulary (always, sometimes, never)</HiDA_MD:hasImage>
+                        <HiDA_MD:imageAssociation>Name of column that ties image with row</HiDA_MD:imageAssociation>
+                        <HiDA_MD:indexColumn>[repeat as necessary]
+                            <HiDA_MD:indexColumnName>Name of the column of index data</HiDA_MD:indexColumnName>
+                            <HiDA_MD:indexColumnDesc>Description of the type of information contained in the column</HiDA_MD:indexColumnDesc>
+                            <HiDA_MD:indexColumnDataType>Controlled vocabulary (text, date, number)</HiDA_MD:indexColumnDataType>
+                            <HiDA_MD:restriction>[repeat for each restriction on this column]
+                                <HiDA_MD:isRestricted>Yes/No</HiDA_MD:isRestricted>
+                                <HiDA_MD:accessRestriction>what is the restriction</HiDA_MD:accessRestriction>
+                                <HiDA_MD:restrictionReason>what is the reason that restriction applies to this format</HiDA_MD:restrictionReason>
+                                <HiDA_MD:citation>what is the legal citation the authorizes this restriction</HiDA_MD:citation>
+                                <HiDA_MD:jurisdiction>controlled vocabulary (city, county, state, federal)</HiDA_MD:jurisdiction>
+                            </HiDA_MD:restriction>
+                        </HiDA_MD:indexColumn>
+                    </HiDA_MD:indexFile>
+                    <HiDA_MD:significantCharacteristics>
+                        <HiDA_MD:fullText>y/n</HiDA_MD:fullText>
+                        <HiDA_MD:creator>y/n</HiDA_MD:creator>
+                        <HiDA_MD:date>y/n</HiDA_MD:date>
+                        <HiDA_MD:fileName>y/n</HiDA_MD:fileName>
+                        <HiDA_MD:other>
+                            <HiDA_MD:othervalue>description of other field that should be searchable; one field per element entry</HiDA_MD:othervalue>[repeat as necessary]
+                        </HiDA_MD:other>
+                    </HiDA_MD:significantCharacteristics>
+                </HiDA_MD:transferFormat>
+            </HiDA_MD:transferFormatInfo>
+            <HiDA_MD:parserName>The name/URI of the parser used to turn SIPs into PIPs</HiDA_MD:parserName>
+            <HiDA_MD:parserPID>ark:/12345/parserId</HiDA_MD:parserPID>
+    </HiDA_MD:seriesInfo>
+    
+
+    <HiDA_MD:transferPlan>
+        <HiDA_MD:transferParameters>[repeat as necessary for initial, ongoing]
+            <HiDA_MD:transferSequence>controlled vocab: initial, ad hoc, on-going</HiDA_MD:transferSequence>
+            <HiDA_MD:transferFrequency>controlled vocab: once, daily, weekly, monthly, quarterly,etc.</HiDA_MD:transferFrequency>
+            <HiDA_MD:transferMethod>controlled vocab: CD, Hard Drive, USB stick, FTP</HiDA_MD:transferMethod>
+            <HiDA_MD:ipTransfer></HiDA_MD:ipTransfer>
+        </HiDA_MD:transferParameters>
+    </HiDA_MD:transferPlan>
+    
+</RecordsTransmittalPlan>

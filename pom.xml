@@ -60,7 +60,12 @@
         <module>authentication-module</module>
 	<module>spring-service-module</module>
         <module>provenance-module</module>
-<!--        <module>update-module</module>-->
+        <module>update-module</module>
+	<module>bag-module</module>
+	<module>space-module</module>
+	<module>persistent-id-module</module>
+	<module>bagit-java</module>
+	<module>hida-core</module>
     </modules>
 
     <properties>

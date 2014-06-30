@@ -154,7 +154,7 @@ public class UploadImplTest {
                 .andExpect(method(HttpMethod.POST))
                 .andRespond(withSuccess("uploadSuccessful", MediaType.APPLICATION_JSON));
         
-        Path sipPath = Paths.get(this.getClass().getClassLoader().getResource("bigBag.zip")
+        Path sipPath = Paths.get(this.getClass().getClassLoader().getResource("testBag.zip")
                 .toURI());
         upload.uploadSip(sipPath, restTemplate);
         mockServer.verify();

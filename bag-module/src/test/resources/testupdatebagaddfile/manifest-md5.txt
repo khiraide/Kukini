@@ -1,0 +1,3 @@
+a97f70e5f339f8af03b43cb544e158df  data/testfiles/pmc/sundowner.txt
+1959aee664252a112ede87b231aa2d1f  data/testfiles/monsoon.txt
+2de746d85e78d1f5d475ea48076ee708  data/testfiles/pmc/mistral.txt

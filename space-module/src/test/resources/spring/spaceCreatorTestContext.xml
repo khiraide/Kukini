@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <bean class="org.springbyexample.util.log.AnnotationLoggerBeanPostProcessor" />
+
+    <!-- Declare context-wide Hazelcast instance.  Will be shared by all Space instances. -->
+    <bean id="hcInstance" class="com.hazelcast.core.Hazelcast" factory-method="newHazelcastInstance">
+            <constructor-arg>
+            <bean class="com.hazelcast.config.Config">
+                <property name="groupConfig">
+                    <bean class="com.hazelcast.config.GroupConfig">
+                        <property name="name" value="SpaceCreatorTestGroup"/>
+                    </bean>
+                </property>
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <!--
+         Instantiate our Space factory, and pass it (via constructor injection)
+         the Hazelcast Instance we created above.
+    -->
+    <bean id="spaceCreator" class="gov.hawaii.digitalarchives.hida.space.SpaceCreatorImpl">
+        <constructor-arg type="com.hazelcast.core.HazelcastInstance" ref="hcInstance"/>
+    </bean>
+
+    <!--
+         Instantiate a Space using the SpaceCreator created above.  NOTE: this
+         is for illutrative purpopses only, as all beans sharing this context
+         will have access to this Space instance.  If the beans will be running
+         in separate threads, they will still be sharing the same space
+         instance.  SpaceImpl's are NOT thread-safe so should not be shared
+         among threads.  Instead, each thread should make use of a space
+         creator bean to create their own instance of a SpaceImpl.
+    -->
+    <bean id="TestSpace1" factory-bean="spaceCreator" factory-method="createSpace">
+        <constructor-arg type="java.lang.String" value="TestSpace1"/>
+    </bean>
+</beans>

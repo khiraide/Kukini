@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <context:spring-configured/>
+
+    <bean class="org.springbyexample.util.log.AnnotationLoggerBeanPostProcessor" />
+
+    <!--  Note the use of prototype scope here.  This is to allow tests to
+          create multiple instances of a HazelcastInstance, and makes it
+          convenient for all of them to share the same config. -->
+    <bean id="hzInstance" class="com.hazelcast.core.Hazelcast" scope="prototype" factory-method="newHazelcastInstance">
+        <constructor-arg>
+            <bean class="com.hazelcast.config.Config">
+                <property name="groupConfig">
+                    <bean class="com.hazelcast.config.GroupConfig">
+                        <property name="name" value="SpaceModuleTestGroup"/>
+                    </bean>
+                </property>
+            </bean>
+        </constructor-arg>
+    </bean>
+</beans>
