@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Kukini by khiraide</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Kukini</h1>
+        <p class="header">Digital Records Transfer Tool for the Hawaii State Archives</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/khiraide/Kukini/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/khiraide/Kukini/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/khiraide/Kukini">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/khiraide">khiraide</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="kukini---a-digital-records-transfer-tool-for-the-hawaii-state-archives" class="anchor" href="#kukini---a-digital-records-transfer-tool-for-the-hawaii-state-archives"><span class="octicon octicon-link"></span></a>Kukini - A digital records transfer tool for the Hawaii State Archives</h1>
+
+<p>At the Hawaii State Archives, there is a need to update their digital records preservation capabilities.  Thus, they are currently in the process of implementing a records system which has been designed to store, protect, and preserve digital records. The types of digital records include medical records, annual reports, birth records, etc. This records system requires a Digital Records Transfer tool which must provide government agencies of Hawaii with the ability to transfer digital records to the Hawaii State Archives. Its transfer process must use secure and authenticated methods that document and ensure that the entirety of the files have been transferred uncorrupted. Kukini is a digital records transfer tool that has been designed, implemented, tested, and evaluated for use within an archival framework. To install this system:</p>
+
+<h2>
+<a name="1-install-java-7-and-maven" class="anchor" href="#1-install-java-7-and-maven"><span class="octicon octicon-link"></span></a>1. Install Java 7 and Maven</h2>
+
+<p>Please visit <a href="https://www.java.com/en/download/">https://www.java.com/en/download/</a> to install Java 7. </p>
+
+<p>Start by following the <a href="http://maven.apache.org/download.cgi">directions on installing Maven</a>.</p>
+
+<p>Be sure to run mvn --version to verify that it is correctly installed.  This package has been tested using Maven 3.0.4.</p>
+
+<h2>
+<a name="2-install-hawaii-state-archives-jar-files-into-your-local-maven-repository" class="anchor" href="#2-install-hawaii-state-archives-jar-files-into-your-local-maven-repository"><span class="octicon octicon-link"></span></a>2. Install Hawaii State Archives jar files into your local Maven repository</h2>
+
+<p>The Hawaii State Archives binaries are not provided as part of public Maven repositories, so the next step is to install the three jar files needed for compilation and testing into your local repository.   You accomplish this by changing directory to libs and executing the following three commands:</p>
+
+<pre><code>mvn install:install-file -Dfile=bag-module-1.0-SNAPSHOT.jar -DartifactId=bag-module  -DgroupId=gov.hawaii.digitalarchives -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=persistent-id-module-1.0-SNAPSHOT.jar -DartifactId=persistent-id-module -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=space-module-1.0-SNAPSHOT.jar -DartifactId=space-module -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=hida-core-1.0-SNAPSHOT.jar -DartifactId=hida-core -DgroupId=gov.hawaii.digitalarchives  -Dversion=1.0-SNAPSHOT -Dpackaging=jar -DgeneratePom=true
+
+</code></pre>
+
+<h2>
+<a name="3--install-tomcat-7" class="anchor" href="#3--install-tomcat-7"><span class="octicon octicon-link"></span></a>3  Install Tomcat 7</h2>
+
+<p>Tomcat 7 is used to deploy the SIP Transfer Servlet. Using Ubuntu, Tomcat 7 can be installed with the commmand:</p>
+
+<pre><code>sudo apt-get install tomcat7
+
+</code></pre>
+
+<h2>
+<a name="4-deploy-the-sip-transfer-servlet" class="anchor" href="#4-deploy-the-sip-transfer-servlet"><span class="octicon octicon-link"></span></a>4 Deploy the SIP Transfer Servlet</h2>
+
+<p>Deploy the SIP Transfer Servlet war file in the libs directory. The war file is called, sipuploader.war</p>
+
+<h2>
+<a name="5--build-and-test-the-system" class="anchor" href="#5--build-and-test-the-system"><span class="octicon octicon-link"></span></a>5  Build and test the system</h2>
+
+<p>Now that everything is installed, build and test the system. You use the standard Maven 'install' target.</p>
+
+<pre><code>mvn install
+
+</code></pre>
+
+<p>Now to run the application, change to the application-module directory. Run the maven command:</p>
+
+<pre><code>mvn nbm:run-platform
+
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
