@@ -7,7 +7,7 @@ what:      unlimited sequential identifiers of form template
        and mint an unbounded number of identifiers
        with the template ".ze".
        Minting order is sequential.
-when:      20140529140810
+when:      20140529160045
 where:     tatsujin-VGNFW590FVH:/home/tatsujin/Desktop/Kukini/persistent-id-module
 Version:   Noid $Revision$
 Size:      unlimited
