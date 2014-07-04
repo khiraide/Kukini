@@ -24,13 +24,13 @@ sudo apt-get install tomcat7
 ```
 
 
-4 Deploy the SIP Transfer Servlet
+3 Deploy the SIP Transfer Servlet
 -----------------------------
 Deploy the SIP Transfer Servlet war file in the libs directory. The war file is called, sipuploader.war
 
 
 
-5  Build and test the system
+4  Build and test the system
 -----------------------------
 
 Now that everything is installed, build and test the system. Change your directory to the 'Kukini' directory. You use the standard Maven 'clean install' target.
